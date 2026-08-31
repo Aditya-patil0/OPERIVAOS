@@ -1,0 +1,68 @@
+<svg width="1300" height="300" viewBox="0 0 1300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nodeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#5B7FFF"/>
+    </marker>
+  </defs>
+
+  <rect width="1300" height="300" fill="#0B1120"/>
+
+  <!-- connecting lines -->
+  <g stroke="#3457D5" stroke-width="2.5" fill="none">
+    <path d="M180,150 H260" stroke-dasharray="6 5" marker-end="url(#arrow)">
+      <animate attributeName="stroke-dashoffset" values="0;-22" dur="1s" repeatCount="indefinite"/>
+    </path>
+    <path d="M440,150 H520" stroke-dasharray="6 5" marker-end="url(#arrow)">
+      <animate attributeName="stroke-dashoffset" values="0;-22" dur="1s" repeatCount="indefinite" begin="0.25s"/>
+    </path>
+    <path d="M780,150 H860" stroke-dasharray="6 5" marker-end="url(#arrow)">
+      <animate attributeName="stroke-dashoffset" values="0;-22" dur="1s" repeatCount="indefinite" begin="0.5s"/>
+    </path>
+    <path d="M1040,150 H1120" stroke-dasharray="6 5" marker-end="url(#arrow)">
+      <animate attributeName="stroke-dashoffset" values="0;-22" dur="1s" repeatCount="indefinite" begin="0.75s"/>
+    </path>
+  </g>
+
+  <!-- traveling packets across the whole pipeline -->
+  <circle r="5" fill="#8FB2FF">
+    <animateMotion dur="4.5s" repeatCount="indefinite" path="M60,150 H260 H520 H860 H1240"/>
+  </circle>
+  <circle r="5" fill="#22D3EE">
+    <animateMotion dur="4.5s" begin="2.25s" repeatCount="indefinite" path="M60,150 H260 H520 H860 H1240"/>
+  </circle>
+
+  <!-- Node 1: Angular SPA -->
+  <rect x="20" y="100" width="160" height="100" rx="14" fill="url(#nodeGrad)" stroke="#3457D5" stroke-width="1.5"/>
+  <text x="100" y="140" text-anchor="middle" font-size="26">🖥️</text>
+  <text x="100" y="170" text-anchor="middle" font-family="Verdana, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Angular SPA</text>
+  <text x="100" y="186" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" fill="#9FB8FF">Role-based UI</text>
+
+  <!-- Node 2: API Gateway / RBAC -->
+  <rect x="260" y="100" width="180" height="100" rx="14" fill="url(#nodeGrad)" stroke="#3457D5" stroke-width="1.5"/>
+  <text x="350" y="140" text-anchor="middle" font-size="26">🔐</text>
+  <text x="350" y="170" text-anchor="middle" font-family="Verdana, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">API Gateway</text>
+  <text x="350" y="186" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" fill="#9FB8FF">RBAC Resolver</text>
+
+  <!-- Node 3: Core Services -->
+  <rect x="520" y="80" width="260" height="140" rx="14" fill="url(#nodeGrad)" stroke="#6DB33F" stroke-width="1.5"/>
+  <text x="650" y="118" text-anchor="middle" font-size="24">⚙️</text>
+  <text x="650" y="146" text-anchor="middle" font-family="Verdana, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Core Services</text>
+  <text x="650" y="164" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" fill="#9FB8FF">Lifecycle · Workflow</text>
+  <text x="650" y="178" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" fill="#9FB8FF">Budget · Tasks · Audit</text>
+
+  <!-- Node 4: Kafka -->
+  <rect x="860" y="100" width="180" height="100" rx="14" fill="url(#nodeGrad)" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="950" y="140" text-anchor="middle" font-size="26">🔁</text>
+  <text x="950" y="170" text-anchor="middle" font-family="Verdana, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Event Bus</text>
+  <text x="950" y="186" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" fill="#9FB8FF">Apache Kafka</text>
+
+  <!-- Node 5: AI + Data -->
+  <rect x="1120" y="100" width="160" height="100" rx="14" fill="url(#nodeGrad)" stroke="#22D3EE" stroke-width="1.5"/>
+  <text x="1200" y="140" text-anchor="middle" font-size="26">🧠</text>
+  <text x="1200" y="170" text-anchor="middle" font-family="Verdana, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">AI + Data</text>
+  <text x="1200" y="186" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" fill="#9FB8FF">RAG · Postgres · Redis</text>
+</svg>
