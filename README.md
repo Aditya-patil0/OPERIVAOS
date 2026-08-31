@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=soft&amp;color=0:0F172A,50:1E3A8A,100:3457D5&amp;height=200&amp;section=header&amp;text=OPERIVA%20OS&amp;fontSize=56&amp;fontColor=ffffff&amp;fontAlignY=42&amp;desc=Enterprise%20Operations%20%26%20Process%20Platform&amp;descAlignY=62&amp;descSize=18&amp;descColor=D6E0FF" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=soft&amp;color=0:0F172A,50:1E3A8A,100:3457D5&amp;height=200&amp;section=header&amp;text=OPERIVA%20OS&amp;fontSize=56&amp;fontColor=ffffff&amp;fontAlignY=42&amp;desc=Enterprise%20Operations%20and%20Process%20Platform&amp;descAlignY=62&amp;descSize=18&amp;descColor=D6E0FF" width="100%"/>
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&amp;weight=600&amp;size=20&amp;duration=3000&amp;pause=1000&amp;color=3457D5&amp;center=true&amp;vCenter=true&amp;width=650&amp;lines=Project+lifecycle+management;Multi-level+approval+chains;Project-scoped+RBAC+by+design;Permission-scoped+AI+assistant" alt="Typing SVG" />
 
