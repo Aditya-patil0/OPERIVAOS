@@ -1,92 +1,26 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=soft&amp;color=0:0F172A,50:1E3A8A,100:3457D5&amp;height=200&amp;section=header&amp;text=OPERIVA%20OS&amp;fontSize=56&amp;fontColor=ffffff&amp;fontAlignY=42&amp;desc=Enterprise%20Operations%20and%20Process%20Platform&amp;descAlignY=62&amp;descSize=18&amp;descColor=D6E0FF" width="100%"/>
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&amp;weight=600&amp;size=20&amp;duration=3000&amp;pause=1000&amp;color=3457D5&amp;center=true&amp;vCenter=true&amp;width=650&amp;lines=Project+lifecycle+management;Multi-level+approval+chains;Project-scoped+RBAC+by+design;Permission-scoped+AI+assistant" alt="Typing SVG" />
-
-<br/><br/>
-
-<table>
-<tr>
-<td align="center" width="110">
-  <img src="https://img.icons8.com/3d-fluency/94/angular.png" width="60"/><br/>
-  <sub><b>Angular</b></sub>
-</td>
-<td align="center" width="110">
-  <img src="https://img.icons8.com/3d-fluency/94/spring-logo.png" width="60"/><br/>
-  <sub><b>Spring Boot</b></sub>
-</td>
-<td align="center" width="110">
-  <img src="https://img.icons8.com/3d-fluency/94/java-coffee-cup-logo.png" width="60"/><br/>
-  <sub><b>Java 21</b></sub>
-</td>
-<td align="center" width="110">
-  <img src="https://img.icons8.com/3d-fluency/94/kafka.png" width="60"/><br/>
-  <sub><b>Kafka</b></sub>
-</td>
-<td align="center" width="110">
-  <img src="https://img.icons8.com/3d-fluency/94/postgreesql.png" width="60"/><br/>
-  <sub><b>PostgreSQL</b></sub>
-</td>
-<td align="center" width="110">
-  <img src="https://img.icons8.com/3d-fluency/94/redis.png" width="60"/><br/>
-  <sub><b>Redis</b></sub>
-</td>
-<td align="center" width="110">
-  <img src="https://img.icons8.com/3d-fluency/94/docker.png" width="60"/><br/>
-  <sub><b>Docker</b></sub>
-</td>
-</tr>
-</table>
+<img src="./assets/banner.svg" width="100%"/>
 
 <br/>
 
-<table>
-<tr>
-<td align="center" width="230">
-  <img src="https://img.icons8.com/3d-fluency/60/module.png" width="42"/><br/>
-  <b>Modular Monolith</b><br/><sub>Phased, containerized build</sub>
-</td>
-<td align="center" width="230">
-  <img src="https://img.icons8.com/3d-fluency/60/lock-2.png" width="42"/><br/>
-  <b>Project-Scoped RBAC</b><br/><sub>(user, project, role) triples</sub>
-</td>
-<td align="center" width="230">
-  <img src="https://img.icons8.com/3d-fluency/60/artificial-intelligence.png" width="42"/><br/>
-  <b>Permission-Scoped RAG</b><br/><sub>Filtered before the model sees it</sub>
-</td>
-</tr>
-<tr>
-<td align="center" width="230">
-  <img src="https://img.icons8.com/3d-fluency/60/synchronize.png" width="42"/><br/>
-  <b>Append-Only History</b><br/><sub>Nothing is ever overwritten</sub>
-</td>
-<td align="center" width="230">
-  <img src="https://img.icons8.com/3d-fluency/60/settings.png" width="42"/><br/>
-  <b>Generic Approval Engine</b><br/><sub>New types = configuration</sub>
-</td>
-<td align="center" width="230">
-  <img src="https://img.icons8.com/3d-fluency/60/alarm-clock.png" width="42"/><br/>
-  <b>SLA Auto-Escalation</b><br/><sub>Nothing gets silently ignored</sub>
-</td>
-</tr>
-</table>
+<img src="https://skillicons.dev/icons?i=angular,spring,java,kafka,postgres,redis,docker,kubernetes" />
+
+<br/><br/>
+
+<img src="./assets/architecture-flow.svg" width="100%"/>
 
 <br/>
 
 <p>
   <img src="https://img.shields.io/badge/status-in%20development-orange?style=flat-square"/>
   <img src="https://img.shields.io/badge/architecture-modular%20monolith-3457D5?style=flat-square"/>
+  <img src="https://img.shields.io/badge/RBAC-project--scoped-6DB33F?style=flat-square"/>
+  <img src="https://img.shields.io/badge/AI-permission--scoped%20RAG-22D3EE?style=flat-square"/>
   <img src="https://img.shields.io/badge/license-MIT-2E8B57?style=flat-square"/>
-  <img src="https://img.shields.io/badge/MVP-10%20week%20roadmap-10192E?style=flat-square"/>
 </p>
 
-**[Overview](#-overview)** ·
-**[Architecture](#-architecture)** ·
-**[AI Assistant](#-ai-assistant-architecture)** ·
-**[Tech Stack](#-tech-stack)** ·
-**[Roadmap](#-development-roadmap)** ·
-**[Run Locally](#-running-locally)**
+**[Overview](#-overview)** · **[Architecture](#-architecture)** · **[AI Assistant](#-ai-assistant-architecture)** · **[Tech Stack](#-tech-stack)** · **[Roadmap](#-development-roadmap)** · **[Run Locally](#-running-locally)**
 
 </div>
 
@@ -403,18 +337,7 @@ stateDiagram-v2
 [#-tech-stack](#-tech-stack)
 
 <div align="center">
-<table>
-<tr>
-<td align="center" width="90"><img src="https://img.icons8.com/3d-fluency/60/angular.png" width="38"/></td>
-<td align="center" width="90"><img src="https://img.icons8.com/3d-fluency/60/spring-logo.png" width="38"/></td>
-<td align="center" width="90"><img src="https://img.icons8.com/3d-fluency/60/java-coffee-cup-logo.png" width="38"/></td>
-<td align="center" width="90"><img src="https://img.icons8.com/3d-fluency/60/kafka.png" width="38"/></td>
-<td align="center" width="90"><img src="https://img.icons8.com/3d-fluency/60/postgreesql.png" width="38"/></td>
-<td align="center" width="90"><img src="https://img.icons8.com/3d-fluency/60/redis.png" width="38"/></td>
-<td align="center" width="90"><img src="https://img.icons8.com/3d-fluency/60/docker.png" width="38"/></td>
-<td align="center" width="90"><img src="https://img.icons8.com/3d-fluency/60/kubernetes.png" width="38"/></td>
-</tr>
-</table>
+<img src="https://skillicons.dev/icons?i=angular,spring,java,kafka,postgres,redis,docker,kubernetes" />
 </div>
 <br/>
 
@@ -649,11 +572,11 @@ gantt
 <div align="center">
 <table>
 <tr>
-<td align="center" width="140"><img src="https://img.icons8.com/3d-fluency/60/city-buildings.png" width="44"/><br/><sub><b>Corporates</b></sub></td>
-<td align="center" width="140"><img src="https://img.icons8.com/3d-fluency/60/courthouse.png" width="44"/><br/><sub><b>Government</b></sub></td>
-<td align="center" width="140"><img src="https://img.icons8.com/3d-fluency/60/scales.png" width="44"/><br/><sub><b>Law Firms</b></sub></td>
-<td align="center" width="140"><img src="https://img.icons8.com/3d-fluency/60/helping-hand.png" width="44"/><br/><sub><b>NGOs</b></sub></td>
-<td align="center" width="140"><img src="https://img.icons8.com/3d-fluency/60/shop.png" width="44"/><br/><sub><b>SMBs</b></sub></td>
+<td align="center" width="140"><span style="font-size:32px">🏢</span><br/><sub><b>Corporates</b></sub></td>
+<td align="center" width="140"><span style="font-size:32px">🏛️</span><br/><sub><b>Government</b></sub></td>
+<td align="center" width="140"><span style="font-size:32px">⚖️</span><br/><sub><b>Law Firms</b></sub></td>
+<td align="center" width="140"><span style="font-size:32px">🤝</span><br/><sub><b>NGOs</b></sub></td>
+<td align="center" width="140"><span style="font-size:32px">🏪</span><br/><sub><b>SMBs</b></sub></td>
 </tr>
 </table>
 </div>
@@ -667,5 +590,5 @@ gantt
 MIT — see [`LICENSE`](./LICENSE) for details.
 
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;customColorList=2,6,12,20&amp;height=100&amp;section=footer" width="100%"/>
+<img src="./assets/footer.svg" width="100%"/>
 </div>
