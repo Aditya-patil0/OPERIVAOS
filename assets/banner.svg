@@ -1,12 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-label="Operiva banner">
+<svg width="1200" height="280" viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#1d4ed8"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1220">
+        <animate attributeName="stop-color" values="#0B1220;#0F1B3D;#1E3A8A;#0F1B3D;#0B1220" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" stop-color="#1E3A8A">
+        <animate attributeName="stop-color" values="#1E3A8A;#3457D5;#1E3A8A" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#3457D5">
+        <animate attributeName="stop-color" values="#3457D5;#5B7FFF;#3457D5" dur="8s" repeatCount="indefinite"/>
+      </stop>
     </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <rect width="1200" height="320" fill="url(#bg)"/>
-  <circle cx="140" cy="160" r="78" fill="#60a5fa" opacity="0.2"/>
-  <text x="220" y="165" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="700">OPERIVA</text>
-  <text x="220" y="220" fill="#bfdbfe" font-family="Segoe UI, Arial, sans-serif" font-size="26">Digital Operations Platform</text>
+
+  <rect width="1200" height="280" fill="url(#bgGrad)"/>
+
+  <!-- animated circuit lines -->
+  <g stroke="#5B7FFF" stroke-width="1.5" opacity="0.35" fill="none">
+    <path d="M0,220 H300 L340,180 H620 L660,220 H1000 L1040,180 H1200" stroke-dasharray="8 6">
+      <animate attributeName="stroke-dashoffset" values="0;-140" dur="4s" repeatCount="indefinite"/>
+    </path>
+    <path d="M0,60 H200 L240,100 H520 L560,60 H860 L900,100 H1200" stroke-dasharray="8 6">
+      <animate attributeName="stroke-dashoffset" values="0;140" dur="5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- flowing data packets -->
+  <circle r="4" fill="#8FB2FF">
+    <animateMotion dur="4s" repeatCount="indefinite" path="M0,220 H300 L340,180 H620 L660,220 H1000 L1040,180 H1200"/>
+  </circle>
+  <circle r="4" fill="#8FB2FF">
+    <animateMotion dur="5s" repeatCount="indefinite" path="M0,60 H200 L240,100 H520 L560,60 H860 L900,100 H1200"/>
+  </circle>
+
+  <!-- title -->
+  <text x="600" y="128" text-anchor="middle" font-family="Trebuchet MS, Verdana, sans-serif" font-size="64" font-weight="800" fill="#FFFFFF" filter="url(#glow)" opacity="0">
+    OPERIVA OS
+    <animate attributeName="opacity" values="0;0;1" dur="1.4s" fill="freeze"/>
+  </text>
+
+  <!-- subtitle -->
+  <text x="600" y="168" text-anchor="middle" font-family="Verdana, sans-serif" font-size="20" fill="#D6E0FF" opacity="0">
+    Enterprise Operations &amp; Process Platform
+    <animate attributeName="opacity" values="0;0;1" dur="2.2s" fill="freeze"/>
+  </text>
+
+  <!-- tagline -->
+  <text x="600" y="212" text-anchor="middle" font-family="Consolas, monospace" font-size="14" fill="#9FB8FF" opacity="0">
+    Lifecycle Engine · Approval Chains · Project-Scoped RBAC · Permission-Scoped AI
+    <animate attributeName="opacity" values="0;0;1" dur="2.8s" fill="freeze"/>
+  </text>
+
+  <!-- pulsing bottom border -->
+  <rect x="0" y="275" width="1200" height="5" fill="#3457D5">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2.4s" repeatCount="indefinite"/>
+  </rect>
 </svg>
