@@ -2,15 +2,18 @@ package com.example.backend.service;
 
 import com.example.backend.model.User;
 import com.example.backend.repository.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public User createUser(String name, String email, String rawPassword, String designation) {
@@ -21,8 +24,7 @@ public class UserService {
         User user = new User();
         user.setName(name);
         user.setEmail(email);
-        // TODO: replace with real password hashing before production use.
-        user.setPasswordHash(rawPassword);
+        user.setPasswordHash(passwordEncoder.encode(rawPassword));
         user.setDesignation(designation);
 
         return userRepository.save(user);
