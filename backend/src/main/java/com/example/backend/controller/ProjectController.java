@@ -2,7 +2,9 @@ package com.example.backend.controller;
 
 import com.example.backend.dto.ProjectCreateRequest;
 import com.example.backend.model.Project;
+import com.example.backend.model.ProjectRole;
 import com.example.backend.model.ProjectState;
+import com.example.backend.model.Role;
 import com.example.backend.repository.ProjectRoleRepository;
 import com.example.backend.service.ProjectService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,9 +29,24 @@ public class ProjectController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Project createProject(@RequestBody ProjectCreateRequest request) {
-        return projectService.createProject(request);
+    public ResponseEntity<?> createProject(@RequestBody ProjectCreateRequest request, HttpServletRequest httpRequest) {
+        Long callerUserId = (Long) httpRequest.getAttribute("userId");
+
+        if (callerUserId == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Authentication required"));
+        }
+
+        Project createdProject = projectService.createProject(request);
+
+        ProjectRole projectRole = new ProjectRole();
+        projectRole.setUserId(callerUserId);
+        projectRole.setProjectId(createdProject.getId());
+        projectRole.setRole(Role.CEO);
+        projectRole.setGrantedBy(callerUserId);
+        projectRoleRepository.save(projectRole);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdProject);
     }
 
     @GetMapping("/{id}")
