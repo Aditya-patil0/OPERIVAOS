@@ -35,6 +35,19 @@ public class ProjectService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Project not found"));
     }
 
+    public Project changeState(Long projectId, ProjectState newState) {
+        Project project = projectRepository.findById(projectId)
+                .orElseThrow(() -> new RuntimeException("Project not found"));
+
+        ProjectState currentState = project.getState();
+        if (!ProjectStateMachine.isTransitionAllowed(currentState, newState)) {
+            throw new IllegalStateException("Cannot transition from " + currentState + " to " + newState);
+        }
+
+        project.setState(newState);
+        return projectRepository.save(project);
+    }
+
     public List<Project> listProjects() {
         return projectRepository.findAll();
     }
