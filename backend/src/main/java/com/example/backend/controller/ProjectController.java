@@ -5,6 +5,7 @@ import com.example.backend.model.Project;
 import com.example.backend.model.ProjectState;
 import com.example.backend.repository.ProjectRoleRepository;
 import com.example.backend.service.ProjectService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,11 +33,12 @@ public class ProjectController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getProjectById(@PathVariable Long id,
-                                          @RequestHeader(value = "X-User-Id", required = false) Long userId) {
+    public ResponseEntity<?> getProjectById(@PathVariable Long id, HttpServletRequest request) {
+        Long userId = (Long) request.getAttribute("userId");
+
         if (userId == null) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN)
-                    .body(Map.of("error", "You do not have access to this project"));
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Authentication required"));
         }
 
         if (projectRoleRepository.findByUserIdAndProjectId(userId, id).isEmpty()) {
