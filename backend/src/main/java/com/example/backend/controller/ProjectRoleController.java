@@ -39,8 +39,11 @@ public class ProjectRoleController {
                     .body(Map.of("error", "Only a CEO can assign roles on this project"));
         }
 
-        ProjectRole projectRole = new ProjectRole();
-        projectRole.setUserId(request.userId());
+        Long targetUserId = request.userId();
+        ProjectRole projectRole = projectRoleRepository.findByUserIdAndProjectId(targetUserId, projectId)
+                .orElseGet(ProjectRole::new);
+
+        projectRole.setUserId(targetUserId);
         projectRole.setProjectId(projectId);
         projectRole.setRole(Role.valueOf(request.role()));
         projectRole.setGrantedBy(callerUserId);
