@@ -3,8 +3,10 @@ package com.example.backend.controller;
 import com.example.backend.dto.ProjectCreateRequest;
 import com.example.backend.model.Project;
 import com.example.backend.model.ProjectState;
+import com.example.backend.repository.ProjectRoleRepository;
 import com.example.backend.service.ProjectService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -16,9 +18,11 @@ import java.util.Map;
 public class ProjectController {
 
     private final ProjectService projectService;
+    private final ProjectRoleRepository projectRoleRepository;
 
-    public ProjectController(ProjectService projectService) {
+    public ProjectController(ProjectService projectService, ProjectRoleRepository projectRoleRepository) {
         this.projectService = projectService;
+        this.projectRoleRepository = projectRoleRepository;
     }
 
     @PostMapping
@@ -28,8 +32,19 @@ public class ProjectController {
     }
 
     @GetMapping("/{id}")
-    public Project getProjectById(@PathVariable Long id) {
-        return projectService.findProjectById(id);
+    public ResponseEntity<?> getProjectById(@PathVariable Long id,
+                                          @RequestHeader(value = "X-User-Id", required = false) Long userId) {
+        if (userId == null) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(Map.of("error", "You do not have access to this project"));
+        }
+
+        if (projectRoleRepository.findByUserIdAndProjectId(userId, id).isEmpty()) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(Map.of("error", "You do not have access to this project"));
+        }
+
+        return ResponseEntity.ok(projectService.findProjectById(id));
     }
 
     @GetMapping
