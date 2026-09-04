@@ -89,6 +89,11 @@ public class ApprovalChainService {
             return approvalChainRepository.save(chain);
         }
 
+        if (decision == StepDecision.APPROVED) {
+            chain.setStatus(ChainStatus.PENDING);
+            return approvalChainRepository.save(chain);
+        }
+
         return chain;
     }
 
