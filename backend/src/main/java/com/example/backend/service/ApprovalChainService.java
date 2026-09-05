@@ -20,11 +20,14 @@ public class ApprovalChainService {
 
     private final ApprovalChainRepository approvalChainRepository;
     private final ApprovalStepRepository approvalStepRepository;
+    private final KafkaEventPublisher kafkaEventPublisher;
 
     public ApprovalChainService(ApprovalChainRepository approvalChainRepository,
-                                ApprovalStepRepository approvalStepRepository) {
+                                ApprovalStepRepository approvalStepRepository,
+                                KafkaEventPublisher kafkaEventPublisher) {
         this.approvalChainRepository = approvalChainRepository;
         this.approvalStepRepository = approvalStepRepository;
+        this.kafkaEventPublisher = kafkaEventPublisher;
     }
 
     public ApprovalChain startChain(Long projectId, RequestType requestType, Long createdBy,
@@ -74,7 +77,9 @@ public class ApprovalChainService {
 
         if (decision == StepDecision.REJECTED) {
             chain.setStatus(ChainStatus.REJECTED);
-            return approvalChainRepository.save(chain);
+            ApprovalChain savedChain = approvalChainRepository.save(chain);
+            kafkaEventPublisher.publishApprovalRejected(chainId, levelNo, actedBy);
+            return savedChain;
         }
 
         if (decision == StepDecision.CLARIFICATION_REQUESTED) {
@@ -86,7 +91,9 @@ public class ApprovalChainService {
 
         if (decision == StepDecision.APPROVED && ApprovalDecisionValidator.isLastLevel(steps, levelNo)) {
             chain.setStatus(ChainStatus.APPROVED);
-            return approvalChainRepository.save(chain);
+            ApprovalChain savedChain = approvalChainRepository.save(chain);
+            kafkaEventPublisher.publishApprovalGranted(chainId, levelNo, actedBy);
+            return savedChain;
         }
 
         if (decision == StepDecision.APPROVED) {
