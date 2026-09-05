@@ -15,9 +15,11 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ProjectService {
 
     private final ProjectRepository projectRepository;
+    private final KafkaEventPublisher kafkaEventPublisher;
 
-    public ProjectService(ProjectRepository projectRepository) {
+    public ProjectService(ProjectRepository projectRepository, KafkaEventPublisher kafkaEventPublisher) {
         this.projectRepository = projectRepository;
+        this.kafkaEventPublisher = kafkaEventPublisher;
     }
 
     public Project createProject(ProjectCreateRequest request) {
@@ -45,7 +47,10 @@ public class ProjectService {
         }
 
         project.setState(newState);
-        return projectRepository.save(project);
+        Project savedProject = projectRepository.save(project);
+        kafkaEventPublisher.publishProjectStateChanged(
+                savedProject.getId(), currentState.name(), newState.name());
+        return savedProject;
     }
 
     public List<Project> listProjects() {
